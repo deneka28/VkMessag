@@ -4,5 +4,6 @@
         <file>VkFuncs.js</file>
         <file>Web.qml</file>
         <file>MainList.qml</file>
+        <file>UserDialog.qml</file>
     </qresource>
 </RCC>

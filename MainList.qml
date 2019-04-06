@@ -87,22 +87,24 @@ Rectangle {
                     text: "%1 %2".arg(modelData['first_name']).arg(modelData['last_name'])
                 }
             }
-//            MouseArea {
-//                anchors.fill: parent
-//                onClicked: {
-//                    user_Id = friendsList[mainList.current].user_id
-//                    view.currentIndex = model.index
-//                    lists.visible = false
-//                    userDialog.visible = true
-//                    editMessage.visible = true
-//                }
-//            }
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    user_Id = friendsList[mainList.current].id
+                    view.currentIndex = model.index
+                    lists.visible = false
+                    usrDialog.visible = true
+                    //editMessage.visible = true
+                    //console.log("uId", friendsList[mainList.current].id)
+                    VkFuncs.getMessages()
+                }
+            }
         }
-//        currentIndex: mainList.current
-//        onCurrentIndexChanged: {
-//            mainList.current = currentIndex
-//            user_Id = friendsList[mainList.current].user_id
-//            console.debug(user_Id)
-//        }
+        //currentIndex: mainList.current
+        onCurrentIndexChanged: {
+            mainList.current = currentIndex
+            user_Id = friendsList[mainList.current].id
+            console.debug("user_id:", user_Id)
+        }
     }
 }
