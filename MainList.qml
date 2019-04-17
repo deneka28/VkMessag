@@ -6,7 +6,7 @@ Rectangle {
 
     property var friendsList
     property int index
-    property int current: 0
+    property int current: -1
     property var currentUrl
     property var user_Id
 
@@ -75,6 +75,23 @@ Rectangle {
                                 * qt_Opacity;
                         }"
                     }
+
+                    Rectangle{
+                        id:onLine
+                        width: 20
+                        height: 20
+                        x: 70
+                        y: 70
+                        radius: 15
+                    }
+                    Component.onCompleted: {
+                        if(modelData['online'] === 0)
+                            onLine.color = "red"
+                        else {
+                            onLine.color = "green"
+                        }
+
+                    }
                 }
 
                 Text {
@@ -95,7 +112,6 @@ Rectangle {
                     lists.visible = false
                     usrDialog.visible = true
                     //editMessage.visible = true
-                    //console.log("uId", friendsList[mainList.current].id)
                     VkFuncs.getMessages()
                 }
             }

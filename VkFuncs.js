@@ -4,7 +4,6 @@ function getUser() {
         requ.onreadystatechange = function() {
             if(requ.readyState === XMLHttpRequest.DONE) {
                 if(requ.status && requ.status === 200) {
-//                   console.log("response", requ.responseText)
                    var results = JSON.parse(requ.responseText)
                    friendsList = results.response.items
                 } else {
@@ -13,7 +12,7 @@ function getUser() {
             }
         }
         requ.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
-        requ.send('&fields=photo_medium' + '&user_id=' + oauth.userId + '&access_token=' + oauth.accessToken + '&v=5.92')
+        requ.send('&fields=photo_medium,online' + '&user_id=' + oauth.userId + '&access_token=' + oauth.accessToken + '&v=5.92')
 
 }
 
@@ -23,7 +22,7 @@ function getMessages() {
         requ.onreadystatechange = function() {
             if(requ.readyState === XMLHttpRequest.DONE) {
                 if(requ.status && requ.status === 200) {
-                   console.log("response", requ.responseText)
+                   console.log("responseMess", requ.responseText)
                    var results = JSON.parse(requ.responseText)
                    messageHistory = results.response
                 } else {

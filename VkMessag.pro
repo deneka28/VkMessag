@@ -14,7 +14,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += main.cpp \
     oauthvk.cpp \
-    settings.cpp
+    settings.cpp \
+    vksortmodel.cpp
 
 RESOURCES += qml.qrc
 
@@ -31,4 +32,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 HEADERS += \
     oauthvk.h \
-    settings.h
+    settings.h \
+    vksortmodel.h
